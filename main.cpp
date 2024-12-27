@@ -8,13 +8,13 @@ using namespace std;
 
 int main()
 {
-	queue<int> queue(10);
+	queue<string> queue(10);
 
-	queue.equeue(10);
-	queue.equeue(20);
-	queue.equeue(30);
-	queue.equeue(40);
-	queue.equeue(50);
+	queue.equeue("C++");
+	queue.equeue("Python");
+	queue.equeue("Java");
+	queue.equeue("C");
+	queue.equeue("HTML");
 
 	queue.display();
 

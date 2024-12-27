@@ -4,11 +4,11 @@
 
 template<class type>
 
-//Simple Queue 
+//Circular Queue 
 class queue
 {
 private:
-	  int _front, _rear;
+	  size_t _front, _rear;
 	type* _arr;
 	size_t _capacity;
 
@@ -16,15 +16,15 @@ private:
 
 	bool isFull()const
 	{
-		return (_rear  == _capacity - 1);
+		return ((_rear + 1) % _capacity == _front);
 	}
 
 	bool isEmpty()const
 	{
-		return (_front == -1 && _rear == -1 || _front > _rear);
+		return (_front == _rear );
 	}
 public:
-	queue(const size_t capacity) :_capacity(capacity), _front(-1), _rear(-1) { _arr = new type[_capacity]; }
+	queue(const size_t capacity) :_capacity(capacity), _front(0), _rear(0) { _arr = new type[_capacity]; }
 	
 	~queue()
 	{
@@ -39,15 +39,12 @@ public:
 			return;
 		}else
 		{ 
-			if(_front = -1 && _rear == -1 )
-			{
-				_front++;
-				_rear++;
-				_arr[_rear] = value;
-			}else
-			{
-				_arr[++_rear] = value;
-			}
+            _arr[_rear] = value;
+
+			_rear = (_rear + 1) % _capacity;
+
+			
+
 		}
 	}
 
@@ -59,13 +56,9 @@ public:
 		}
 		else
 		{
-			_front++;
-
-			//Reset the quere if all elements are dequeued 
-			if (_front > _rear)
-			{
-				_front = _rear = -1;
-			}
+			
+			_front = (_front + 1) % _capacity;
+			
 		}
 
 	}
@@ -75,7 +68,7 @@ public:
 		if (isEmpty())
 		{
 			std::cout << "Erorr The Queue is Empty ! \n";
-			return -1;
+			
 		}
 		return _arr[_front];
 	}
@@ -85,15 +78,16 @@ public:
 		if (isEmpty())
 		{
 			std::cout << "Erorr The Queue is Empty ! \n";
-			return -1;
+			
 			
 		}
-		return _arr[_rear];
+		return _arr[(_rear - 1 + _capacity) % _capacity];
 	}
 
 	int length()const
 	{
-		return(_rear - _front) +1;
+		// (rear - front + capacity ) % capacity = number of Elements 
+		return((_rear - _front + _capacity) % _capacity);
 	}
 
 	size_t maxSize()const
@@ -104,9 +98,9 @@ public:
 	void display()const
 	{
 		std::cout << "The Elements : ";
-		for (int i = _front; i <= _rear ; i++)
+		for (int i = 0; i <= length() -1; i++)
 		{
-			std::cout << _arr[i] << " ";
+			std::cout << _arr[(_front + i) % _capacity] << " ";
 		}
 		std::cout << "\n";
 	}

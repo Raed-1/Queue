@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\W\\source\\repos\\OPQueue\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A15191AF-1667-4E4F-8C4E-A6CE0765BD67}|OPQueue.vcxproj|C:\\Users\\W\\source\\repos\\OPQueue\\Queue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A15191AF-1667-4E4F-8C4E-A6CE0765BD67}|OPQueue.vcxproj|solutionrelative:Queue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A15191AF-1667-4E4F-8C4E-A6CE0765BD67}|OPQueue.vcxproj|C:\\Users\\W\\source\\repos\\OPQueue\\queue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A15191AF-1667-4E4F-8C4E-A6CE0765BD67}|OPQueue.vcxproj|solutionrelative:queue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A15191AF-1667-4E4F-8C4E-A6CE0765BD67}|OPQueue.vcxproj|C:\\Users\\W\\source\\repos\\OPQueue\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -28,7 +28,7 @@
               "RelativeDocumentMoniker": "queue.h",
               "ToolTip": "C:\\Users\\W\\source\\repos\\OPQueue\\queue.h",
               "RelativeToolTip": "queue.h",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAAAA4AAAATAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEYAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-18T11:51:07.446Z",
               "EditorCaption": ""
@@ -41,7 +41,7 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\W\\source\\repos\\OPQueue\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-18T11:48:44.018Z",
               "EditorCaption": ""
