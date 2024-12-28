@@ -8,25 +8,25 @@ using namespace std;
 
 int main()
 {
-	queue<string> queue(10);
+	queue<string> queue1;
 
-	queue.equeue("C++");
-	queue.equeue("Python");
-	queue.equeue("Java");
-	queue.equeue("C");
-	queue.equeue("HTML");
+	queue1.equeue("C++",1);
+	queue1.equeue("Python",0);
+	queue1.equeue("Java",-1);
+	queue1.equeue("C",-2);
+	queue1.equeue("HTML",-3);
 
-	queue.display();
+	queue1.display();
 
-	queue.dqueue();
+	queue1.dqueue();
 
 	//After Removing 
-	cout << "After Removing \n";
-	queue.display();
+	cout << "\nAfter Removing \n";
+	queue1.display();
 
-	cout << "Front : "<< queue.front() << "\n";
-	cout << "Back : "<< queue.back() << "\n";
-	cout << "Max Size : "<< queue.maxSize() << "\n";
-	cout << "Length  : " << queue.length() << "\n";
+	cout << "\nFront : "<< queue1.frontt() << "\n";
+	cout << "\nBack : "<< queue1.back() << "\n";
+	cout << "\nSize : "<< queue1.size() << "\n";
+	
 	return 0;
 }

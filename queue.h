@@ -3,48 +3,64 @@
 
 
 template<class type>
+struct Node
+{
+	type data;
+	int priority;
+	Node<type>* next;
+	Node(const type& _data, const int _priority) :data(_data), priority(_priority), next(nullptr) {}
+};
 
-//Circular Queue 
+
+template<class type>
+//Priority Queue using linked list 
 class queue
 {
 private:
-	  size_t _front, _rear;
-	type* _arr;
-	size_t _capacity;
+	
+
+	Node<type>* front;
 
 	//Helper Functions
 
-	bool isFull()const
-	{
-		return ((_rear + 1) % _capacity == _front);
-	}
-
 	bool isEmpty()const
 	{
-		return (_front == _rear );
+		return (!front);
 	}
+
 public:
-	queue(const size_t capacity) :_capacity(capacity), _front(0), _rear(0) { _arr = new type[_capacity]; }
+	queue(): front(nullptr){}
 	
 	~queue()
 	{
-		delete[] _arr;
+		
+		while (front)
+		{
+			Node<type>* temp = front;
+
+			front = front->next;
+			delete temp;
+		}
 	}
 
-	void equeue(const type& value)
+	void equeue(const type& value,int _priority)
 	{
-		if (isFull())
+		Node<type>* newNode = new Node<type>(value, _priority);
+
+		if (!front || front->priority < _priority)
 		{
-			std::cout << "The Queue is Full ! \n";
-			return;
-		}else
-		{ 
-            _arr[_rear] = value;
-
-			_rear = (_rear + 1) % _capacity;
-
-			
-
+			newNode->next = front;
+			front = newNode;
+		}
+		else
+		{
+			Node<type>* temp = front;
+			while (temp->next && temp->next->priority >= _priority)
+			{
+				temp = temp->next;
+			}
+			newNode->next = temp->next;
+			temp->next = newNode;
 		}
 	}
 
@@ -53,24 +69,29 @@ public:
 		if (isEmpty())
 		{
 			std::cout << "The Queue is Empty ! \n";
+			return;
 		}
 		else
 		{
-			
-			_front = (_front + 1) % _capacity;
+			Node<type>* temp = front;
+
+			front = front->next;
+
+			delete temp;
+
 			
 		}
 
 	}
 
-	type front()const
+	type frontt()const
 	{
 		if (isEmpty())
 		{
 			std::cout << "Erorr The Queue is Empty ! \n";
 			
 		}
-		return _arr[_front];
+		return front->data;
 	}
 
 	type back()const
@@ -81,26 +102,39 @@ public:
 			
 			
 		}
-		return _arr[(_rear - 1 + _capacity) % _capacity];
+
+		Node<type>* current = front;
+		while (current && current->next->next)
+		{
+			current = current->next;
+		}
+		return current->data;
 	}
 
-	int length()const
-	{
-		// (rear - front + capacity ) % capacity = number of Elements 
-		return((_rear - _front + _capacity) % _capacity);
-	}
+	
 
-	size_t maxSize()const
+	size_t size()const
 	{
-		return _capacity;
+		size_t num = 0;
+		Node<type>* temp = front;
+
+		while (temp)
+		{
+			num++;
+			temp = temp->next;
+		}
+		return num;
 	}
 
 	void display()const
 	{
-		std::cout << "The Elements : ";
-		for (int i = 0; i <= length() -1; i++)
+		Node<type>* temp = front;
+
+		std::cout << "The Elements : \n ";
+		while (temp)
 		{
-			std::cout << _arr[(_front + i) % _capacity] << " ";
+			std::cout << temp->data << " ";
+			temp = temp->next;
 		}
 		std::cout << "\n";
 	}
